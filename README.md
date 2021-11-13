@@ -1,4 +1,4 @@
-# Superalgos-Docker-Develop
+# SUPERALGOS Node based Crypto Trading Bot
 Setup to Develop Superalgos in a Docker Container
 
 DEVELOPMENT ENVIROMENT with a Docker Container
