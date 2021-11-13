@@ -9,8 +9,8 @@ services:
         - GIT_USERNAME=${GIT_USERNAME}
         - GIT_PERSONAL_ACCESS_TOKEN=${GIT_PERSONAL_ACCESS_TOKEN}
 
-      image: 'superalgos-docker-develop:develop' 
-      container_name: superalgos-docker-develop
+      image: 'docker-superalgos-develop:develop' 
+      container_name: Superalgos-Develop
       network_mode: bridge
       ports:
         - '34248:34248' 
