@@ -39,6 +39,7 @@ cd /app/Superalgos
 
 git config --global user.email "${GIT_EMAIL_ADRESS}"                                                       
 git config --global user.name "${GIT_USERNAME}"  
+git config --get remote.origin.url
 
 # ensure node dependencies are up to date
 node setup noShortcuts
