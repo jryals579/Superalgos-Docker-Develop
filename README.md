@@ -44,7 +44,7 @@ and scroll down to the bottom
 Click on Generate token
 
 ![008](https://user-images.githubusercontent.com/91568406/141653145-19bcee1e-e217-4e95-b92f-7ad5a341983f.PNG)
-Copy your token and your GitHub Username and Save it somewhere save for later.
+Copy your token and your GitHub Username and the E-Mail adress you used to signup at Github and Save it somewhere save for later.
 
 ## Installation in a Docker System
 
@@ -72,6 +72,7 @@ The "default" Ports are 18041 and 34248 - if your run more than one Superalgo Bo
 ![015](https://user-images.githubusercontent.com/91568406/141653151-47615e5d-28d3-43e6-8b2e-3f2d92ee5bd7.PNG)
 Click on the "Enviroment" tab and 
 - Paste in your GitHub Username
+- Paste in the E-Mail adress you used to signup at Github
 - Paste in your GitHub Personal Access Torken
 - and Paste in your Github Username inbetween the Github Repository_URL 
   you need to have Forked Superalgos/Superalgos for this to work
