@@ -7,7 +7,7 @@ services:
       environment:
         - BRANCH=${BRANCH:-develop}
         - GIT_USERNAME=${GIT_USERNAME}
-        - GIT_EMAIL_ADRESS=${GIT_EMAIL_ADRESS}
+        - GIT_EMAIL_ADDRESS=${GIT_EMAIL_ADDRESS}
         - GIT_PERSONAL_ACCESS_TOKEN=${GIT_PERSONAL_ACCESS_TOKEN}
 
       image: 'docker-superalgos-develop:develop' 
