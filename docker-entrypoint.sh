@@ -35,6 +35,10 @@ else
     fi
 fi
 
+addgroup superalgos
+adduser --disabled-password --no-create-home --ingroup superalgos superalgos 
+chown -R superalgos:superalgos app 
+
 cd /app/Superalgos
 
 git config --global user.email "${GIT_EMAIL_ADRESS}"                                                       
