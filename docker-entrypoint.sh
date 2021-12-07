@@ -7,7 +7,7 @@ GIT_UPSTREAM=${GIT_UPSTREAM:-"https://github.com/Superalgos/Superalgos.git"}
 GIT_REPOSITORY_URL=${GIT_REPOSITORY_URL:-$GIT_UPSTREAM}
 GIT_USERNAME=${GIT_USERNAME:-""}
 GIT_PERSONAL_ACCESS_TOKEN=${GIT_PERSONAL_ACCESS_TOKEN:=""}
-GIT_EMAIL_ADRESS=${GIT_EMAIL_ADRESS:=""}
+GIT_EMAIL_ADDRESS=${GIT_EMAIL_ADDRESS:=""}
 
 if [ "${GIT_USERNAME}" != "" ]; then
     GIT_REPOSITORY_URL="https://github.com/${GIT_USERNAME}/Superalgos.git"
@@ -41,7 +41,7 @@ chown -R superalgos:superalgos app
 
 cd /app/Superalgos
 
-git config --global user.email "${GIT_EMAIL_ADRESS}"                                                       
+git config --global user.email "${GIT_EMAIL_ADDRESS}"                                                       
 git config --global user.name "${GIT_USERNAME}"  
 git config --get remote.origin.url
 
