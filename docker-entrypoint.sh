@@ -37,6 +37,7 @@ fi
 
 addgroup superalgos
 adduser --disabled-password --no-create-home --ingroup superalgos superalgos 
+cd ..
 chown -R superalgos:superalgos app 
 
 cd /app/Superalgos
