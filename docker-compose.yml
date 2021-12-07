@@ -1,15 +1,17 @@
 version: "3"
 services:
-   superalgos-docker-dev:
+   superalgos-docker-develop:
       build:
          context: .
          dockerfile: ./Dockerfile
       environment:
         - BRANCH=${BRANCH:-develop}
         - GIT_USERNAME=${GIT_USERNAME}
+        - GIT_EMAIL_ADDRESS=${GIT_EMAIL_ADDRESS}
         - GIT_PERSONAL_ACCESS_TOKEN=${GIT_PERSONAL_ACCESS_TOKEN}
-      image: 'docker-superalgos-develop:develop' 
-      container_name: Superalgos-Develop
+
+      image: 'martinb78/superalgos-docker-develop:latest' 
+      container_name: superalgos-docker-develop
       network_mode: bridge
       ports:
         - '34248:34248' 
