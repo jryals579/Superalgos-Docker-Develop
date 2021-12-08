@@ -37,6 +37,11 @@ fi
 
 cd /app/Superalgos
 
+#
+git config --global user.email "${GIT_EMAIL_ADDRESS}"                                                       
+git config --global user.name "${GIT_USERNAME}"  
+git config --get remote.origin.url
+
 # ensure node dependencies are up to date
 node setup noShortcuts
 
@@ -46,11 +51,6 @@ addgroup superalgos
 adduser --disabled-password --no-create-home --ingroup superalgos superalgos 
 chown -R superalgos:superalgos /app 
 
-cd /app/Superalgos
-
-git config --global user.email "${GIT_EMAIL_ADDRESS}"                                                       
-git config --global user.name "${GIT_USERNAME}"  
-git config --get remote.origin.url
-
 # run the application
+cd /app/Superalgos
 node platform minMemo noBrowser
