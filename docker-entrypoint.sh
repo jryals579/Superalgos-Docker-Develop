@@ -35,19 +35,22 @@ else
     fi
 fi
 
+cd /app/Superalgos
+
+# ensure node dependencies are up to date
+node setup noShortcuts
+
+cd ..
+cd ..
 addgroup superalgos
 adduser --disabled-password --no-create-home --ingroup superalgos superalgos 
-cd ..
-chown -R superalgos:superalgos app 
+chown -R superalgos:superalgos /app 
 
 cd /app/Superalgos
 
 git config --global user.email "${GIT_EMAIL_ADDRESS}"                                                       
 git config --global user.name "${GIT_USERNAME}"  
 git config --get remote.origin.url
-
-# ensure node dependencies are up to date
-node setup noShortcuts
 
 # run the application
 node platform minMemo noBrowser
