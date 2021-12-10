@@ -94,6 +94,9 @@ Click on "Terminal" and be patient. Now the Container downloads Superalgos from 
 Mounted Folder you picked earlier. That can take a while.
 Wait until it is finished and you see "Superalgos Platform App is Running" in the Terminal Window.
 
+![wait](https://user-images.githubusercontent.com/91568406/145647199-336a9eb8-8fa5-4172-81f3-bf0de4412009.PNG)
+Seriously wait - it can take 5 to 30 Minutes
+
 ## Setup Superalgos to be able to Contribute and Commit changes
 
 ![021](https://user-images.githubusercontent.com/91568406/141653158-613384c6-ef52-42dd-9c2d-c08dead55093.PNG)
