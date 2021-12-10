@@ -22,9 +22,14 @@ if [ -d "/app/Superalgos/.git" ]; then
     cd /app/Superalgos
     git checkout ${BRANCH}
     if git remote | grep upstream ; then
-        git pull upstream ${BRANCH}
+        if git pull upstream develop ; then
+           echo "updated-1"
+        else
+           echo "already up to date, or other error occurred"
+        fi
     else
         git pull
+		echo "updated-2"
     fi
 else
     # clone Superalgos repo
@@ -42,8 +47,8 @@ else
 
     # ensure node dependencies are up to date # caused an error when restarting Superalgos
     node setup noShortcuts
-	
-	cd ..
+
+    cd ..
     cd ..
     addgroup superalgos
     adduser --disabled-password --no-create-home --ingroup superalgos superalgos 
