@@ -5,11 +5,14 @@ services:
          context: .
          dockerfile: ./Dockerfile
       environment:
+        - LANG=C.UTF-8
+        - PGID=1000
+        - PUID=1000
         - BRANCH=${BRANCH:-develop}
         - GIT_USERNAME=${GIT_USERNAME}
         - GIT_EMAIL_ADDRESS=${GIT_EMAIL_ADDRESS}
         - GIT_PERSONAL_ACCESS_TOKEN=${GIT_PERSONAL_ACCESS_TOKEN}
-
+      user: "$UID:$GID"
       image: 'martinb78/superalgos-docker-develop:latest' 
       container_name: superalgos-docker-develop
       network_mode: bridge
@@ -17,4 +20,4 @@ services:
         - '34248:34248' 
         - '18041:18041'
       volumes:
-        - "${VOLUME_MOUNT_LOCAL_-./src}:${VOLUME_MOUNT_CONTAINER:-/app}"
+        - ${PWD}:/app
