@@ -39,8 +39,8 @@ if [ -d "/app/Superalgos/.git" ]; then
 		   git rebase upstream/${BRANCH}
         fi
     else
-        git pull
 		echo "XXXXXXXXXX NOT ON DEVELOPER BRANCH ??? XXXXXXXXXX"
+        git pull
     fi
 else
     # clone Superalgos repo
