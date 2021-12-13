@@ -63,6 +63,7 @@ else
     git config --global user.email "${GIT_EMAIL_ADDRESS}"                                                       
     git config --global user.name "${GIT_USERNAME}"  
     git config --get remote.origin.url
+    git config --add checkout.defaultRemote upstream
     echo XXXXXXXXXX GIT USERNAME = ${GIT_USERNAME} XXXXXXXXXX
 	echo XXXXXXXXXX GIT EMAIL = ${GIT_EMAIL_ADDRESS} XXXXXXXXXX
 	
