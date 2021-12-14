@@ -4,14 +4,12 @@ WORKDIR /app
 
 COPY docker-entrypoint.sh /
 
-ARG BRANCH=develop \
-    GIT_UPSTREAM=https://github.com/Superalgos/Superalgos.git 
+ARG BRANCH=develop
 	
 ENV BRANCH=$BRANCH \
     GIT_USERNAME=${GIT_USERNAME:-"PASTE_YOUR_GITHUB_USERNAME_HERE"} \ 
     GIT_EMAIL_ADDRESS=${GIT_EMAIL_ADDRESS:-"PASTE_YOUR_GIT_EMAIL_ADDRESS_HERE"} \ 	
     GIT_PERSONAL_ACCESS_TOKEN=${GIT_PERSONAL_ACCESS_TOKEN:-PASTE_YOUR_GITHUB_PERSONAL_ACCESS_TOKEN_HERE} \
-    GIT_UPSTREAM=https://github.com/Superalgos/Superalgos.git \
     PUID=1000 \
     PGID=1000 \
 	TZ=/etc/timezone \
