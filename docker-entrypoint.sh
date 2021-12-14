@@ -4,8 +4,7 @@ set -eo pipefail
 
 # env vars
 BRANCH=${BRANCH:-"develop"} 
-GIT_UPSTREAM=${GIT_UPSTREAM:-"https://github.com/Superalgos/Superalgos.git"}
-GIT_REPOSITORY_URL=${GIT_REPOSITORY_URL:-$GIT_UPSTREAM}
+GIT_REPOSITORY_URL=${GIT_REPOSITORY_URL:-https://github.com/Superalgos/Superalgos.git}
 GIT_USERNAME=${GIT_USERNAME:-"superalgos"}
 GIT_PERSONAL_ACCESS_TOKEN=${GIT_PERSONAL_ACCESS_TOKEN:=""}
 GIT_EMAIL_ADDRESS=${GIT_EMAIL_ADDRESS:=""}
@@ -33,13 +32,19 @@ if [ -d "/app/Superalgos/.git" ]; then
         if git pull upstream develop ; then
            echo "XXXXXXXXXX ALREADY UP TO DATE XXXXXXXXXX"
 		   echo  XXXXXXXXXX CURRENT BRANCH IS ${BRANCH} XXXXXXXXXX
+		   # git log --graph --decorate --oneline
         else
 		   echo "XXXXXXXXXX UPDATED DEVELOP BRANCH XXXXXXXXXX"
+		   # git log --graph --decorate --oneline
+		   git config pull.rebase false 
 		   git fetch upstream
-		   git rebase upstream/${BRANCH}
+
+		   # git rebase upstream/${BRANCH}
         fi
     else
 		echo "XXXXXXXXXX NOT ON DEVELOPER BRANCH ??? XXXXXXXXXX"
+		# git log --graph --decorate --onelineec
+		git config pull.rebase false 
         git pull
     fi
 else
@@ -48,12 +53,13 @@ else
 	echo XXXXXXXXXX WORKDIR IS $PWD XXXXXXXXXX
 	git init
     git clone "${GIT_REPOSITORY_URL}" /app/Superalgos
-    if [ "${GIT_REPOSITORY_URL}" != "${GIT_UPSTREAM}" ]; 
+    if [ "${GIT_REPOSITORY_URL}" != "https://github.com/Superalgos/Superalgos.git" ]; 
 	  then
 	    cd Superalgos
-        git remote add upstream "${GIT_UPSTREAM}"
+        git remote add upstream https://github.com/Superalgos/Superalgos.git
 		git fetch upstream
 		git checkout ${BRANCH}
+ #		git checkout --track origin
 	  else
        echo ERROR	  
     fi
@@ -63,7 +69,8 @@ else
     git config --global user.email "${GIT_EMAIL_ADDRESS}"                                                       
     git config --global user.name "${GIT_USERNAME}"  
     git config --get remote.origin.url
-    git config --add checkout.defaultRemote upstream
+	git config --add checkout.defaultRemote upstream
+
     echo XXXXXXXXXX GIT USERNAME = ${GIT_USERNAME} XXXXXXXXXX
 	echo XXXXXXXXXX GIT EMAIL = ${GIT_EMAIL_ADDRESS} XXXXXXXXXX
 	
