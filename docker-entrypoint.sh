@@ -76,10 +76,13 @@ else
 	
 
     # ensure node dependencies are up to date # caused an error when restarting Superalgos
-	echo XXXXXXXXXX RUNNING NODE SETUP XXXXXXXXXX
-	echo XXXXXXXXXX PLEASE BE PATIENT - IT CAN TAKE 5 TO 30 MINUTES XXXXXXXXXX
-    node setup noShortcuts
-	
+    #	echo XXXXXXXXXX RUNNING NODE SETUP XXXXXXXXXX
+    #	echo XXXXXXXXXX PLEASE BE PATIENT - IT CAN TAKE 5 TO 30 MINUTES XXXXXXXXXX
+    # node setup noShortcuts
+    	echo XXXXXXXXXX RUNNING NPM SETUP XXXXXXXXXX
+    	echo XXXXXXXXXX PLEASE BE PATIENT - IT CAN TAKE 5 TO 30 MINUTES XXXXXXXXXX    
+    npm run setup
+    
 	echo XXXXXXXXXX SETTING USER AND GROUP XXXXXXXXXX
 	cd ..
     cd ..
