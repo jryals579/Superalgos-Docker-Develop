@@ -30,16 +30,15 @@ if [ -d "/app/Superalgos/.git" ]; then
 	echo XXXXXXXXXX CURRENT BRANCH IS ${BRANCH} XXXXXXXXXX
     if git remote | grep upstream ; then
         if git pull upstream develop ; then
-           echo "XXXXXXXXXX ALREADY UP TO DATE XXXXXXXXXX"
-		   echo  XXXXXXXXXX CURRENT BRANCH IS ${BRANCH} XXXXXXXXXX
+           echo "XXXXXXXXXX UPDATED OR ALREADY UP TO DATE BRANCH ${BRANCH} XXXXXXXXXX"
 		   # git log --graph --decorate --oneline
         else
 		   echo "XXXXXXXXXX UPDATED DEVELOP BRANCH XXXXXXXXXX"
 		   # git log --graph --decorate --oneline
 		   git config pull.rebase false 
 		   git fetch upstream
-
 		   # git rebase upstream/${BRANCH}
+		   # git branch -avv
         fi
     else
 		echo "XXXXXXXXXX NOT ON DEVELOPER BRANCH ??? XXXXXXXXXX"
@@ -58,7 +57,8 @@ else
 	    cd Superalgos
         git remote add upstream https://github.com/Superalgos/Superalgos.git
 		git fetch upstream
-		git checkout ${BRANCH}
+ #		git checkout ${BRANCH}
+        git checkout --track origin/${BRANCH}
  #		git checkout --track origin
 	  else
        echo ERROR	  
@@ -76,13 +76,10 @@ else
 	
 
     # ensure node dependencies are up to date # caused an error when restarting Superalgos
-    #	echo XXXXXXXXXX RUNNING NODE SETUP XXXXXXXXXX
-    #	echo XXXXXXXXXX PLEASE BE PATIENT - IT CAN TAKE 5 TO 30 MINUTES XXXXXXXXXX
-    # node setup noShortcuts
-    	echo XXXXXXXXXX RUNNING NPM SETUP XXXXXXXXXX
-    	echo XXXXXXXXXX PLEASE BE PATIENT - IT CAN TAKE 5 TO 30 MINUTES XXXXXXXXXX    
+	echo XXXXXXXXXX RUNNING NPM SETUP XXXXXXXXXX
+	echo XXXXXXXXXX PLEASE BE PATIENT - IT CAN TAKE 5 TO 30 MINUTES XXXXXXXXXX
     npm run setup
-    
+	
 	echo XXXXXXXXXX SETTING USER AND GROUP XXXXXXXXXX
 	cd ..
     cd ..
