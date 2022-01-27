@@ -55,20 +55,20 @@ else
     if [ "${GIT_REPOSITORY_URL}" != "https://github.com/Superalgos/Superalgos.git" ]; 
 	  then
 	    cd Superalgos
-        git remote add upstream https://github.com/Superalgos/Superalgos.git
-		git fetch upstream
- #		git checkout ${BRANCH}
-        git checkout --track origin/${BRANCH}
- #		git checkout --track origin
+             git remote add upstream https://github.com/Superalgos/Superalgos.git
+	     git fetch upstream
+             git checkout ${BRANCH}
+    #        git checkout --track origin/${BRANCH}
+    #	     git checkout --track origin
 	  else
        echo ERROR	  
     fi
 
     #
 	echo XXXXXXXXXX SET GIT EMAIL AND USERNAME AND REMOTE URL XXXXXXXXXX
-    git config --global user.email "${GIT_EMAIL_ADDRESS}"                                                       
-    git config --global user.name "${GIT_USERNAME}"  
-    git config --get remote.origin.url
+        git config --global user.email "${GIT_EMAIL_ADDRESS}"                                                       
+        git config --global user.name "${GIT_USERNAME}"  
+        git config --get remote.origin.url
 	git config --add checkout.defaultRemote upstream
 
     echo XXXXXXXXXX GIT USERNAME = ${GIT_USERNAME} XXXXXXXXXX
